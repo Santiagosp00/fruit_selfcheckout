@@ -1,0 +1,67 @@
+#form {
+    border: 2px solid gray;
+    width: 70%;
+    margin: auto;
+    margin-top: 30px;
+    padding: 10px 15px;
+}
+
+.instructions {
+    text-align: left;
+}
+
+textarea {
+    width: 100%;
+    height: 70px;
+    margin-bottom: 10px;
+}
+
+#alert {
+    margin: 25px 0 5px 0;
+}
+
+.uploadedImage1 {
+    height: 260px;
+    width: 390px;
+    margin: 5px 0 30px 0;
+}
+
+.uploadedImage2 {
+    height: 360px;
+    width: 540px;
+    margin: 5px 0 30px 0;
+}
+
+#imgTitle {
+    margin-top: 10px;
+}
+
+#box {
+    border: 4px solid gray;
+    width: 70%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+}
+
+#fecha {
+    text-align: right;
+    font-size: larger;
+}
+
+#detalles {
+    text-align: left;
+}
+
+#foto {
+    text-align: left;
+    margin-top: 30px;
+}
+
+#firma {
+    border-top: 1px solid black;
+    width: 40%;
+    margin: auto;
+    margin-top: 50px;
+}
