@@ -1,0 +1,5 @@
+Producto        Cantidad        Precio Unitario 
+    Manzana             5               $ 20.0 
+
+    Total                               $ 100.0                
+    
