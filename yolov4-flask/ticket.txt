@@ -1,5 +1,6 @@
 Producto        Cantidad        Precio Unitario 
-    Manzana             5               $ 20.0 
+    Manzana             3               $ 20.0 
+    Plátano             1               $ 8.0 
 
-    Total                               $ 100.0                
+    Total                               $ 68.0                
     

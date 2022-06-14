@@ -69,6 +69,13 @@ def inference(img,tags, video = False):
     class_img=[]
     images_data=[]
     original_image = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+    gray_img = cv2.cvtColor(original_image, cv2.COLOR_RGB2GRAY)
+    gray_img_3c = np.zeros_like(original_image)
+    for channel in range(3):
+      gray_img_3c[:,:,channel] = gray_img.copy()
+    original_image = gray_img_3c.copy()
+
     image_data = cv2.resize(original_image, (416, 416))
     image_data = image_data / 255.
     images_data.append(image_data)
@@ -94,7 +101,7 @@ def inference(img,tags, video = False):
             )
 
     for box,prob,cls in zip(boxes.numpy()[0],scores.numpy()[0],classes.numpy()[0]):
-        if float(prob)>0.05:
+        if float(prob)>0.06:
           if not video:
             print(box)
             print(prob)
@@ -110,8 +117,6 @@ def inference(img,tags, video = False):
           coor[2] = coor[2] * image_h
 
           c1, c2 = (coor[1].astype(int), coor[0].astype(int)), (coor[3].astype(int), coor[2].astype(int))
-          print(c1)
-          print(c2)
           img=rectangle_box(tags,img,cls,c1,c2,coor,prob,(255,0,0))
     
         if not video:
