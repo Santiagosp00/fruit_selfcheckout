@@ -18,18 +18,53 @@
     </style>
     <link rel="stylesheet" href="/static/style.css">
 
-    <title>yolov4 object detection</title>
+    <title>Proyecto Final de los compas del Felix.</title>
   </head>
   <body class="text-center">
-    <form class="form-signin" method=post enctype=multipart/form-data>
-        <img class="mb-4" src="/static/tensorflow.png" alt="" width="72">
-        <h1 class="h3 mb-3 font-weight-normal">Carga una imagen para comenzar el autocobro</h1>
-        <input type="file" name="file" class="form-control-file" id="inputfile">
-        <br/>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Cargar</button>
-        <p class="mt-5 mb-3 text-muted">Creado con TensorFlow & Flask</p>
-        <p class="mt-5 mb-3 text-muted">Nota: Las predicciones tardan en cargar.</p>
-
+    <header>
+    </header>
+    <div class="reportview-container">
+      <section class="main">
+        <div class="block-container" style="position: relative">
+          <div class="element-container">
+            <h1 class="hp">La tienda de los compas del Felix con YOLOv4</h1>
+          </div>
+          <div class="element-container">
+            <p class="hp">Proyecto Final de la clase de fisica computacional del equipo Compas de Felix. </p>
+          </div>
+          <div class="element-container">
+            <form class="form-signin" method=post enctype=multipart/form-data>
+              <p class="hp">Carga una imagen para comenzar el autocobro</p> 
+              <input type="file" name="file" class="form-control-file" id="inputfile">
+              <br/>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Cargar</button>
+            </form>
+          </div>
+          <br/>
+          <br/>
+          <br/>
+          <div class="element-container">
+            <form class="form-signin" method=post enctype=multipart/form-data>
+              <img class="mb-4" src="/static/tensorflow.png" alt="" width="72">
+              <p class="hp">Creado con TensorFlow & Flask</p>
+              <p class="hp"><a href="https://github.com/Santiagosp00/fruit_selfcheckout">Link al repositorio.</a></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- <div>
+      <section>
+        <form class="form-signin" method=post enctype=multipart/form-data>
+          <img class="mb-4" src="/static/tensorflow.png" alt="" width="72">
+          <h1 class="h3 mb-3 font-weight-normal">Carga una imagen para comenzar el autocobro</h1>
+          <input type="file" name="file" class="form-control-file" id="inputfile">
+          <br/>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Cargar</button>
+          <p class="mt-5 mb-3 text-muted">Creado con TensorFlow & Flask</p>
+          <p class="mt-5 mb-3 text-muted">Nota: Las predicciones tardan en cargar.</p>
+      </section>
+    </div> -->
     </form>
     <script src="//code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>

@@ -8,9 +8,9 @@ body {
   display: flex;
   -ms-flex-align: center;
   align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #f5f5f5;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #96dfff;
 }
 
 .form-signin {
@@ -26,4 +26,46 @@ body {
   height: auto;
   padding: 10px;
   font-size: 16px;
+}
+
+.hp {
+  font-family: "Lucida Console",monospace;
+  text-align: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: auto;
+  align-items: center;
+}
+
+.reportview-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.block-container {
+  flex: 1 1;
+  max-width: 900px;
+  width: 100%;
+  padding: 5rem 1rem 10rem;
+  box-sizing: border-box;
+}
+
+.element-container {
+  margin: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
