@@ -22,15 +22,15 @@
   </head>
   <body class="text-center">
     <form class="form-signin" method=post enctype=multipart/form-data>
-        <h1 class="h3 mb-3 font-weight-normal">Auto Cobro</h1>
+        <h1 class="hp">Auto Cobro</h1>
         <!-- <div id="container">
         </div> -->
         {% for name in images %}
-        <center><img class="mb-4" src={{name}} alt="" width="724" style="position: relative;left: -194px;"></center>
+        <center><img class="mb-4" src={{name}} alt="" width="320" style="position: relative; left: -10px;"></center>
         {% endfor %}
-        <p class="mt-5 mb-3 text-muted">Frutas encontradas: {{counter}}</p>
+        <p class="hp">Frutas encontradas: {{counter}}</p>
                
-        <h1 class="h3 mb-3 font-weight-normal">Ticket de compra</h1>
+        <h4 class="hp">Tu ticket de compra:</h4>
         <div id="current_date"></p>
         <script>
         date = new Date();
@@ -39,9 +39,15 @@
         day = date.getDate();
         document.getElementById("current_date").innerHTML = day + "/" + month + "/" + year;
         </script>
-        <p class="mt-5 mb-3 text-muted">{{ticket}}</p>
-
-        <button class="btn btn-lg btn-primary btn-block" type="get" action="index.html" >Regresar</button>
+        <div>
+        <center>
+        {% for table in tb %}
+            {{ table|safe }}
+        {% endfor %}
+        </center>
+        </div>
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="get" action="index.html" >Pagar ${{total}}</button>
     </form>
     
     <!-- <script>

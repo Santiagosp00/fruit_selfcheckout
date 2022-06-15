@@ -11,6 +11,7 @@ import cv2
 from PIL import Image
 import base64
 import tensorflow as tf
+import pandas as pd
 import keras
 from object_detector import inference
 from flask import Flask, render_template, request, redirect
@@ -18,12 +19,9 @@ from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
 
 def ticket_generation(content_txt,Total,counter):
-    txt_base = """Producto        Cantidad        Precio Unitario """
-    txt_final = """
-
-    Total              """+str(counter)+"""               $ """+str(Total)+"""                
-    """
-    ticket = ''.join([txt_base,content_txt,txt_final])
+    txt_base = """Producto,Cantidad,PrecioUnitario"""
+    txt_final = """;Total,"""+str(counter)+""",$"""+str(Total)
+    ticket = ''.join([txt_base,content_txt,txt_final]) #,txt_final
     with open("./ticket.txt","w") as f:
         f.write(ticket)
     return ticket
@@ -37,11 +35,27 @@ def fruits_writer(class_img):
     for fruit_dic in fruits_sorted.values():
         fruit_cost += fruit_dic["count"] * fruit_dic["price"]
 
-    fruits_txt = ''.join(["""
-    """+key+"""             """+str(dic_val['count'])+"""               $ """+str(dic_val['price'])+""" """ 
-    for key, dic_val in fruits_sorted.items()])
+    fruits_txt = ''.join([""";"""+key+""","""+str(dic_val['count'])+""",$"""+str(dic_val['price'])for key, dic_val in fruits_sorted.items()])
+    #fruits_txt = ''.join(["""
+    #"""+key+"""             """+str(dic_val['count'])+"""               $ """+str(dic_val['price'])+""" """ 
+    #for key, dic_val in fruits_sorted.items()])
 
     return fruits_txt,fruit_cost
+
+def table_generator(ticket):
+  lines = ticket.split(';')
+  dictionary = {'Producto':[],'Cantidad':[],'Precio Unitario':[]}
+  for i,row in enumerate(lines):
+    if i != 0:
+      content = row.split(',')
+      dictionary['Producto'].append(content[0])
+      dictionary['Cantidad'].append(content[1])
+      dictionary['Precio Unitario'].append(content[2])
+
+  df = pd.DataFrame(dictionary)
+  return df
+    
+
 
 @app.route("/", methods=["GET", "POST"])
 def predict():
@@ -72,8 +86,10 @@ def predict():
             fruits_txt = ''.join([fruits_txt,fruit_section])
             Total += fruit_cost
         ticket = ticket_generation(fruits_txt,Total,counter)
+        df = table_generator(ticket)
+        
 
-        return render_template("result.html", counter=counter,ticket=ticket,images=images)
+        return render_template("result.html", total=Total, counter=counter,ticket=ticket,images=images,tb=[df.to_html(classes='data', header="true")])#,tb=[df.to_html(classes='data', header="true")]
 
     return render_template("index.html")
 
